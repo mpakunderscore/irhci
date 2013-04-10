@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Irhci</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>I</title>
+	<%= stylesheet_link_tag "application" %>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class="header">
+		<div id="title">Independent Research. HCI</div>
+		<div id="menu">
+			<link rel="shortcut icon" href="localhost:3000/favicon.ico" />
+			<a href="language">Language</a>
+			<a href="obstacle">Obstacle</a>
+			<a href="about">About</a>
+		</div>
+	</div>
+	<div id="main"><%= yield %></div>
 </body>
 </html>
