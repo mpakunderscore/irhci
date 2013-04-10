@@ -3,16 +3,15 @@
 <head>
 	<title>I</title>
 	<%= stylesheet_link_tag "application" %>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div class="header">
 		<div id="title">Independent Research. HCI</div>
 		<div id="menu">
-			<link rel="shortcut icon" href="localhost:3000/favicon.ico" />
-			<a href="language">Language</a>
-			<a href="obstacle">Obstacle</a>
-			<a href="about">About</a>
+          <%= link_to 'Labs', {:controller => 'labs', :action => 'index'} %>
+          <%= link_to 'Obstacle', {:controller => 'obstacle', :action => 'index'} %>
+          <%= link_to 'About', {:controller => 'home', :action => 'about'} %>
 		</div>
 	</div>
 	<div id="main"><%= yield %></div>
