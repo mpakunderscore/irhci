@@ -1,10 +1,16 @@
 .header { 
 	position: relative;
-	font-family: "Trebuchet MS";	
+   	font-family: "Helvetica Neue", Arial, sans-serif;	
 	font-size: 24px;
 	height: 50px;
 	border-bottom: 1px solid #000000;
 }
+div.header a {margin-right: 5px; margin-left: 5px;}
+div.header a:link {text-decoration: none;}
+div.header a:visited {text-decoration: none;}
+div.header a:hover {text-decoration: underline;}
+div.header a:active {text-decoration: underline;}
+
 #title {
 	position: absolute; bottom: 10px; left: 15px;
 }
@@ -12,14 +18,8 @@
 	position: absolute; bottom: 10px; right: 15px;
 }
 
-div.header a {margin-right: 5px; margin-left: 5px;}
-div.header a:link {text-decoration: none;}
-div.header a:visited {text-decoration: none;}
-div.header a:hover {text-decoration: underline;}
-div.header a:active {text-decoration: underline;}
-
 #main {
-    font-family: "Verdana";
+    font-family: "Helvetica Neue", Arial, sans-serif;
     position: absolute;
     overflow: auto;
     top: 100px;
