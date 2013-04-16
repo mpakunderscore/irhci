@@ -1,10 +1,56 @@
-<p><b>Language</b></p>
-<p>Simple mechanism for meaningful understanding when reading or watching videos with subtitles in foreign languages.</p>
+<p><b>Minimal translation.</b></p>
+<p>Adding translation of unknown words into subtitles.</p>
 <p>[ ..here is an example(пример) with some text.. ]</p>
 
-<p>Upload file: <a href="">click</a></p>
-<p>Download google chrome extension: <a href="">soon</a></p>
-<p>Find text with 80% coverage: <a href="">soon</a></p>
---
-<p><b>Music</b></p>
-<p>Based on last.fm free music player for chrome: <a href="https://chrome.google.com/webstore/detail/lastfm-free-music-player/bbncpldmanoknoahidbgmkgobgmhnafh?hl=en">download</a></p>
+	<table border="0">
+	<tr>
+	<td>Select text file (.srt or etc): </td>
+	<td>
+		<div style="border:1px solid #CECECE">
+			<%= form_tag({:action => :upload}, :multipart => true, remote: true) do %>
+			<%= file_field 'upload', 'datafile' %>			
+			<%= submit_tag 'Upload' %>
+			<% end %>
+		</div>
+	</td>	
+	<td> and <a href='#' onclick='checkFile()'>show words</a>.</td></td>
+	</tr>	
+	</table>
+				
+<!-- <p>Download google chrome extension: <a href="#">soon</a></p>
+<p>Find text with 80% coverage: <a href="#">soon</a></p> -->
+
+<div id="overlay">
+	<div id="popup">
+		
+		<b>words:</b> 49 (1300) / <b>known:</b> 67% (0, 30) / <b>cover:</b> 81% (1031)
+		<div id="words_table">
+		<table id ="words">
+		  <tr>
+		    <th>word</th>
+		    <th>count</th>
+		    <th>un</th>
+			<th>translation</th>
+		  </tr>		
+		<% @words.each do |word| %>
+		  <tr>
+		    <td><%= word[0] %></td>
+		    <td><%= word[1] %></td>
+			<td><a href='#' onclick='moveWord(this)'>un</a></td>
+		  </tr>
+		<% end %>
+		</table>
+		</div>	
+		<div id="known_table">
+		<table id="known">
+		  <tr>
+		    <th>word</th>
+		    <th>count</th>
+		    <th>back</th>
+		  </tr>		
+		</table>
+		</div>	
+		<div id="generate"><a href='#' onclick='generate()'><b>generate</b></a></div>
+		<div id="close"><a href='#' onclick='closePopup()'>close</a></div>		
+	</div>
+</div>
