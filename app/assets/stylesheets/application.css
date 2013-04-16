@@ -13,6 +13,10 @@ div.header a:visited {text-decoration: none;}
 div.header a:hover {text-decoration: underline;}
 div.header a:active {text-decoration: none;}
 
+p {
+	width: 700px;
+}
+
 #title {
 	position: absolute; bottom: 10px; left: 15px;
 }
