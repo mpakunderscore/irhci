@@ -20,6 +20,7 @@ function checkFile() {
 function moveWord(row)
 {
 	var index = row.parentNode.parentNode.rowIndex;
+	var rowCount = $('#words tr').length;
 	if (index > 0) {
 		for (var i = 1; i < index; i++) {
 			// var word = document.getElementById("words")[1].getElementsByTagName("td")[0];
