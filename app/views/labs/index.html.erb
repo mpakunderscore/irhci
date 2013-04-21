@@ -29,14 +29,13 @@
 		  <tr>
 		    <th>word</th>
 		    <th>count</th>
-		    <th>un</th>
 			<th>translation</th>
 		  </tr>		
 		<% @words.each do |word| %>
 		  <tr>
 		    <td><%= word[0] %></td>
 		    <td><%= word[1] %></td>
-			<td><a href='#' onclick='moveWord(this)'>un</a></td>
+			<td><a href='#' onclick='moveWord(this)'>tr</a></td>
 		  </tr>
 		<% end %>
 		</table>
@@ -44,13 +43,13 @@
 		<div id="known_table">
 		<table id="known">
 		  <tr>
-		    <th>word</th>
+		    <th>known</th>
 		    <th>count</th>
 		    <th>back</th>
 		  </tr>		
 		</table>
 		</div>	
-		<div id="generate"><a href='#' onclick='generate()'><b>generate</b></a></div>
-		<div id="close"><a href='#' onclick='closePopup()'>x</a></div>		
+		<div id="save"><%= link_to 'save', {:action => :save, remote: true} %></div>
+		<div id="close"><a href='#' onclick='closePopup()'>[x]</a></div>		
 	</div>
 </div>

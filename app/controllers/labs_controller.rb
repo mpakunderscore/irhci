@@ -5,8 +5,8 @@ def index
 end
 
 def upload    
-  name = params[:upload][:datafile].original_filename
-
+  
+  # name = params[:upload][:datafile].original_filename
   words = {"the" => 0}
   words_size = 0
   File.open(params[:upload][:datafile].tempfile, "r").each_line do |line|
@@ -25,6 +25,16 @@ def upload
 
   @words = words.sort {|a,b| b[1] <=> a[1]}
   render :action => :index
+end
+
+def save
+    
+  tempfile = params[:save][:datafile].tempfile
+  File.open(tempfile, "w").each_line do |line|
+  end
+  send_file(file, :disposition => 'attachment', :stream => true, :buffer_size => 4096)  
+  # @filename ="#{RAILS_ROOT}/tmp/test/test.doc"
+  # send_file(@filename, :filename => "test.doc")  
 end
 
 

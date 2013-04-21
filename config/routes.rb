@@ -56,6 +56,7 @@ Irhci::Application.routes.draw do
   match 'obstacle' => 'obstacle#index', :as => :obstacle
   match 'about' => 'home#about', :as => :about
   match 'labs/upload' => 'labs#index', :as => :labs
+  match 'labs/save' => 'labs#save', :as => :labs
   #See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
