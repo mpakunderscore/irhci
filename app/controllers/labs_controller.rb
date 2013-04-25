@@ -1,13 +1,16 @@
 class LabsController < ApplicationController
 
 def index
-  @words = {"the" => 0}
+  @words = {"" => 0}
+  @words.clear
 end
 
 def upload    
   
   # name = params[:upload][:datafile].original_filename
-  words = {"the" => 0}
+  words = {"" => 0}
+  words.clear
+  
   words_size = 0
   File.open(params[:upload][:datafile].tempfile, "r").each_line do |line|
     # ([a-zA-Z][[a-zA-Z]']*[a-zA-Z])|([a-zA-Z]+)
