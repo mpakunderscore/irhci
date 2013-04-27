@@ -1,4 +1,23 @@
-<p>Adding translation of unknown words into subtitles.</p>
+<p>Still requires chrome users to activate MediaStream in chrome://flags/:</p>
+<video autoplay></video>
+<!-- <script src=”webcam.js”></script> -->
+<script>
+    if(navigator.webkitGetUserMedia!=null) {
+        var options = {
+            video:true,
+            // audio:true
+        };
+        navigator.webkitGetUserMedia(options,
+         function(stream) {
+            var video = document.querySelector("video");
+            video.src = window.webkitURL.createObjectURL(stream);
+         }, function(e) {
+                    console.log("There was a problem with webkitGetUserMedia");
+                });
+    }
+
+</script>
+<!-- <p>Adding translation of unknown words into subtitles.</p>
 <p>[ ..here is an example(пример) with some text.. ]</p>
 
 	<table border="0">
@@ -12,14 +31,14 @@
 			<% end %>
 		</div>
 	</td>	
-	<td> and <a href='#' onclick='checkFile()'>[show words]</a>.</td></td>
+	<td> and <a href='#' onclick='checkFile()'>show words</a>.</td></td>
 	</tr>	
-	</table>
+	</table> -->
 
 <div id="overlay">
 	<div id="popup">
 		
-		<b>words:</b> 49 (1300) / <b>known:</b> 67% (0, 30) / <b>cover:</b> 81% (1031)
+		<b>words:</b><span id="count">49</span> (1300) / <b>known:</b> 67% (0, 30) / <b>cover:</b> 81% (1031)
 		<div id="words_table">
 		<table id ="words">
 		  <!-- <tr>

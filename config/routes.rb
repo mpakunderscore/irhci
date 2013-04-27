@@ -1,7 +1,8 @@
 Irhci::Application.routes.draw do
   #get "obstacle"
-  post "labs/upload"
-  #get "home/about"
+  post "/labs/upload"
+
+  # get "/labs/experiment.js"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -57,6 +58,9 @@ Irhci::Application.routes.draw do
   match 'about' => 'home#about', :as => :about
   match 'labs/upload' => 'labs#index', :as => :labs
   match 'labs/save' => 'labs#save', :as => :labs
+  match 'labs/ccv' => 'labs#ccv.html'
+  match 'labs/mask' => 'labs#mask.html'
+  match 'labs/index2' => 'labs#index2.html'
   #See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
