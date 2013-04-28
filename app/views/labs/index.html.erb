@@ -1,7 +1,7 @@
 <p><a href="http://caniuse.com/stream">Can I use</a> getUserMedia/Stream API?</p>
-<p>Still requires chrome users to activate MediaStream in <i>chrome://flags/:</i></p>
-<!-- <video autoplay></video> -->
-<script>
+<p>Still requires chrome users to activate Media Stream in <i>chrome://flags/:</i></p>
+  
+<script>	
     if(navigator.webkitGetUserMedia!=null) {
         var options = {
             video:true,
@@ -15,5 +15,12 @@
                     console.log("There was a problem with webkitGetUserMedia");
                 });
     }
+	
+	function drawFrame() {
+	    var canvas = document.querySelector('canvas'),
+	        context = canvas.getContext('2d');
 
+	    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+	    setTimeout(drawFrame, 50);
+	}
 </script>
