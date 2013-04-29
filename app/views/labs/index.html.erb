@@ -1,39 +1,15 @@
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
-<% content_for :javascript_includes do %>
-  <%= javascript_include_tag "labs/ccv.js" %>
-  <%= javascript_include_tag "labs/face.js" %>
-  <%= javascript_include_tag "labs/experiment.js" %>
-<% end %>
-
 <p><a href="http://caniuse.com/stream">Can I use</a> getUserMedia/Stream API?</p>
 <p>Still requires chrome users to activate Media Source in <i>chrome://flags/:</i></p>
 
-<p><a href="#" onclick='foo()'>Click</a></p>
+<p><a href="#" onclick='foo()'>Run face detect</a></p>
 
 <div class="wrapper">
-<canvas width="200" height="160" class="scale"></canvas>
+	<canvas width="200" height="160" class="scale" style="border: 1px solid #CECECE"></canvas>
 </div>
 
-<script>	
-	// 	if(navigator.webkitGetUserMedia!=null) {
-	//         var options = {
-	//             video:true,
-	//             // audio:true
-	//         };
-	//         navigator.webkitGetUserMedia(options,
-	//          function(stream) {
-	//             var video = document.querySelector("video");
-	//             video.src = window.webkitURL.createObjectURL(stream);
-	//          }, function(e) {
-	//                     console.log("There was a problem with webkitGetUserMedia");
-	//                 });
-	//     }
-	// 
-	// function drawFrame() {
-	//     var canvas = document.querySelector('canvas'),
-	//         context = canvas.getContext('2d');
-	// 
-	//     context.drawImage(video, 0, 0, canvas.width, canvas.height);
-	//     setTimeout(drawFrame, 50);
-	// }
-</script>
+<%= stylesheet_link_tag "box.css" %>
+<%= javascript_include_tag "labs/ccv.js" %>
+<%= javascript_include_tag "labs/face.js" %>
+<%= javascript_include_tag "labs/experiment.js" %>
+<%= javascript_include_tag "labs/scene.js" %>
+<%= javascript_include_tag "labs/scene.js" %>

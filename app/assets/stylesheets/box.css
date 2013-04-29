@@ -1,0 +1,27 @@
+#box {
+  position: absolute;
+  left: 50%;
+  bottom: 200px;
+  perspective: 400px;
+}
+.threedee {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50% 50%;
+  backface-visibility: hidden;
+}
+.assembly {
+  animation: spin 4s linear infinite;
+}
+.assembly .face {
+  outline: 1px solid #000;
+  background: #fff !important;
+  backface-visibility: visible;
+}
+@keyframes spin {
+  to {
+    transform: rotateY(360deg) rotateZ(360deg) rotateX(720deg);
+  }
+}
