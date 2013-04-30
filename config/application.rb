@@ -55,13 +55,16 @@ module Irhci
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.serve_static_assets = true
+    config.assets.precompile += %w( *.js )
+    
+    # config.serve_static_assets = true
     
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
-    config.assets.paths << "#{Rails.root}/app/assets/javascripts"
+    # config.assets.paths << "#{Rails.root}/app/assets/javascripts"
+    # config.assets.paths << "#{Rails.root}/app/assets/stylesheets"
     #{Rails.root}/public/uploads
   end
 end

@@ -37,5 +37,8 @@ function createBarrel() {
     barrel.appendChild(createFace(100, 100, 0, -50, 0, -Math.PI / 2, 0, 0, DRUM_TEXTURE, 0, 100));
     return barrel;
 }
-var box = document.getElementById("box");
-if (box != null) box.appendChild(createBarrel());
+
+function box() {
+	var box = document.getElementById("box");
+	if (box != null) box.appendChild(createBarrel());
+}
