@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>R&D</title>
-	<%= stylesheet_link_tag "application" %>
-	<%= csrf_meta_tags %>
+	<title>Simplifying Complexity</title>
+    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'application' %>
 </head>
 <body>
 	<script>
@@ -25,6 +25,10 @@
 		</div>
 	</div>
 	<div id="box"></div>
-	<div id="main"><%= yield %></div>
+
+	<div id="main">
+		<%= yield(:head) %>
+		<%= yield %>
+	</div>
 </body>
 </html>
