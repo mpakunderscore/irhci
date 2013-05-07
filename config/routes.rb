@@ -1,6 +1,6 @@
 Irhci::Application.routes.draw do
   #get "obstacle"
-  post "/labs/upload"
+  # post "/labs/upload"
 
   # get "/labs/experiment.js"
   # The priority is based upon order of creation:
@@ -54,7 +54,7 @@ Irhci::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'home#about'
   match 'labs' => 'labs#index', :as => :labs
-  match 'obstacle' => 'obstacle#index', :as => :obstacle
+  match 'vox' => 'vox#index', :as => :vox
   match 'about' => 'home#about', :as => :about
   match 'labs/upload' => 'labs#index', :as => :labs
   # match 'labs/save' => 'labs#save', :as => :labs
