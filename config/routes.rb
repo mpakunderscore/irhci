@@ -56,9 +56,11 @@ Irhci::Application.routes.draw do
   match 'labs' => 'labs#index', :as => :labs
   match 'vox' => 'vox#index', :as => :vox
   match 'about' => 'home#about', :as => :about
-  match 'labs/upload' => 'labs#index', :as => :labs
+  # match 'labs/upload' => 'labs#index', :as => :labs
   # match 'labs/save' => 'labs#save', :as => :labs
-  match 'labs/demo' => 'labs#demo.html'
+  
+  match 'vox/technologies' => 'vox#technologies'
+  match 'vox/application' => 'vox#application'
   #See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

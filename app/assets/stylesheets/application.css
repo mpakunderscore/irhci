@@ -8,6 +8,14 @@
 
 }
 
+#vox {
+
+	position: relative;	
+   	font-family: "Gotham Light", Helvetica, Arial, sans-serif;	
+	font-size: 16px;
+    right: 0px;
+}
+
 div.header a {margin-right: 5px; margin-left: 5px; color: #000}
 div.header a:link {text-decoration: none;}
 div.header a:visited {text-decoration: none;}

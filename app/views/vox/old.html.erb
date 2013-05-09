@@ -1,0 +1,43 @@
+<img src="assets/vox.jpg" style="border:20px solid white" align="right">
+<p>[will be rewritten]<p>
+
+<p>
+- Intelligent (human-like) User Interface<br />
+- A smart digital billboard<br /> 
+- Expansion space using virtual niches<br />
+<p>And here are four paragraphs describing how to do it.</p>
+</p>
+
+<p>
+<b>Center:</b> a frame from the movie "The Time Machine", <a href="http://www.youtube.com/watch?v=CQbkhYg2DzM">youtube</a> (3 min)<br />
+<b>Left:</b> <a href="http://www.youtube.com/watch?v=BduSDvUU6MY&feature=youtu.be">head tracking technology</a>, <a href="http://en.wikipedia.org/wiki/Siri_(software)">siri</a> (and <a href="http://en.wikipedia.org/wiki/Watson_(computer)">watson</a>), <a href="http://www.geeky-gadgets.com/samsung-22-inch-transparent-lcd-display-goes-into-production-31-03-2011/">transparent display</a><br/ >
+<b>Right:</b> <a href="http://www.seeingmachines.com/product/faceapi/">faceAPI</a> (track and understand faces), <a href="http://www.iryoku.com/separable-sss-released">real-time rendering</a>
+</p>
+--
+<p><b>1. Recognition</b> techniques for passers by (detecting their sex, age, etc.) and choosing the most relevant advertising poster to show to a particular kind of person. Traffic analysis.</p>
+<p>This kind of targeting (instead of a trivial periodical switch) can be implemented using long-existing face recognition algorithms, and it's not too difficult to develop one's own. OpenCV makes it easy (for example, <a href="http://face.com">face.com</a> uses these technologies).</p>
+<p>Examples: when a middle-aged woman walks past a billboard, the system selects a perfume ad. When there's a young man, the system chooses to show him Nike sneakers.</p>
+<p>Challenges: there should be some additional adjustment when there's a flow of people passing by, not just a single person. Perhaps the algorithm should adapt the strategy according to the largest group or select the most "important" ad.</p>
+<p>One can collect some useful statistics for each board, for instance, how many people have passed by, how many of them have looked at the advertising, and who exactly has done it.</p>
+<p>It is important to understand that such a thing is rather to be used in the areas with an average traffic, because a huge billboard would "see" a lot of people and traffic is uniform almost all the time, so the benefits of targeting would be reduced to zero.</p>
+--
+<p><b>2.</b> Working with an angle of view (<b>perspective view</b>).</p>
+<p>All the modern screens can show a picture without any angle and perspective distortions. Here's an <a href="http://www.youtube.com/watch?v=BduSDvUU6MY&feature=youtu.be">example</a> of binding an image on the screen to the view vector. So this way one can create a virtual 3D space behind the screen and display images without angular distortion.</p>
+<p>Back to our billboard screen, if a person walks past the screen, the image will always appear with a correct height to width ratio. This is an interesting and quite attractive effect, which draws attention to the ad. The angle of view can be easily obtained by using the recognition techniques from the paragraph 1.</p>
+<p>Challenges: this would work only for one view vector, so people in all other positions would see more or less distorted picture. But anyway people see distorted images almost all the time, this technique just gives an opportunity to improve it in some cases.</p>
+--
+<p><b>3. Interaction.</b></p>
+<p>Knowing the observer's position and creating a virtual 3D space behind the screen for him/her, one can create a very interesting interactive scenes, including advertising ones.</p>
+<p>Example: a young man walks past the screen, the system detects the position of his face and draws a 3D scene for the corresponding view vector. A young man sees behind the screen a virtual continuation of the real space without distortions. The virtual scene contains a basketball player with a ball, who's looking at the young man (because the system knows the relative position of the viewer and can calculate where the baller should look), sound of the the bouncing ball can be heard. It looks like it's just the glass behind which there is a basketball player. He raises his hand and points to the "spectator", throws the ball into the screen... Sound of collision with glass. Logo. Wow effect.</p>
+<p>Problems: again, this works works for one vector, and creating a correct perspective is possible only for one person (well, there would be some minor distortions for those who stand next to that one).</p>
+<p>Creating an animated scene is very simple, it's not much more expensive than a movie, but it would be interactive with the audience, which brings it to a completely different level.</p>
+--
+<p><b>4.</b> Environmental integration, <b>AR</b>.</p>
+<p>Well, this is my favorite part. These days transparent displays begin to appear, and in 4-6 years their quality is expected to be great and they will be able to be used on streets with the usual lighting conditions. Speaking of the third paragraph's point, a transparent display can "mix" the virtual space with the reality behind it. Virtual character wouldn't be standing on the virtual floor, but on the real floor behind the screen. It would provide huge AR possibilities.</p>
+--
+<p>
+I would like to create an universal way of dealing with it, to introduce another dimension and to enhance the user experience without unnecessary complications. If i understand correctly, it will open a new market that can be used by different areas including new media and virtual art. It will be plenty of room for new ideas and interesting advertising solutions over there.
+</p>
+<p>
+Why don't we make the world a more interesting and interactive place?
+</p>

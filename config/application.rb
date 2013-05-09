@@ -55,7 +55,7 @@ module Irhci
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.assets.precompile += %w( labs.js )
+    # config.assets.precompile += %w( labs.js )
     
     # config.assets.precompile = true    
     # config.serve_static_assets = true
