@@ -9,4 +9,8 @@ class VoxController < ApplicationController
   def application
     render 'vox/application.html.erb'
   end
+  
+  def old
+    render 'vox/old.html.erb'
+  end
 end
