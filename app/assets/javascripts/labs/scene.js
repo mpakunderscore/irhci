@@ -10,7 +10,8 @@ function createFace(w, h, x, y, z, rx, ry, rz, tsrc, tx, ty) {
     var face = document.createElement("div");
     face.className = "threedee face";
     face.style.cssText = PrefixFree.prefixCSS(
-        "background: url(" + tsrc + ") -" + tx.toFixed(2) + "px " + ty.toFixed(2) + "px;" +
+        // "background: url(" + tsrc + ") -" + tx.toFixed(2) + "px " + ty.toFixed(2) + "px;" +
+		// "background-color:orange;" +
         "width:" + w.toFixed(2) + "px;" +
         "height:" + h.toFixed(2) + "px;" +
         "margin-top: -" + (h / 2).toFixed(2) + "px;" +
