@@ -10,13 +10,11 @@
 
 #vox {	
    	font-family: "Gotham Light", Helvetica, Arial, sans-serif;	
-	font-size: 15px;	
+	font-size: 17px;	
 /*    float:right;*/
 }
 
 #vox a {margin-right: 7px; margin-left: 7px; color: #000; font-size: 17px;}
-
-#big a {font-size: 19px; }
 
 div.header a {margin-right: 5px; margin-left: 5px; color: #000}
 div.header a:link {text-decoration: none;}
@@ -38,7 +36,7 @@ p {width: 700px;}
 	font-family: "Verdana";
     position: absolute;
     overflow: auto;
-    top: 100px;
+    top: 80px;
     left:50px;
     right:50px;	
 /*	border:1px solid #CECECE;*/
