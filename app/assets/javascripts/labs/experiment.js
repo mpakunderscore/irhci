@@ -2,6 +2,7 @@ function face() {
 
     (function() {
 		
+		stop();
 		window.mode = 'face'
 
         var video = document.createElement('video'),
@@ -17,6 +18,7 @@ function face() {
 
         function handleWebcamStream(stream) {
 
+			localStream = stream;
             video.src = (window.URL && window.URL.createObjectURL) ? window.URL.createObjectURL(stream) : stream;
             processWebcamVideo();
         }
@@ -45,11 +47,13 @@ function face() {
                     originalFace = faces[0];
                 }
 
-
-            console.log(+new Date() - startTime);
+            // console.log(+new Date() - startTime);
+			var time = document.getElementById("time");
+			time.innerHTML = (+new Date() - startTime);			
 
             // And repeat.
 			if (window.mode == 'face') setTimeout(processWebcamVideo, 50);
+			else clean();
 
         }
 
@@ -71,17 +75,6 @@ function face() {
                 var face = faces[i];
 				// console.log(face.x, face.y, face.width, face.height);
                 context.fillRect(face.x, face.y, face.width, face.height);
-            }
-        }
-
-        function drawMasks(faces) {
-            if(!faces) {
-                return false;
-            }
-
-            for (var i = 0; i < faces.length; i++) {
-                var face = faces[i];
-                context.drawImage(mask, face.x * 0.9, face.y * 0.9, face.width * 1.3, face.height * 1.3);
             }
         }
 
