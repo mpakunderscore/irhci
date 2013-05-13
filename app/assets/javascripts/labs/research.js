@@ -7,14 +7,17 @@ window.URL || (window.URL = window.webkitURL || window.msURL || window.oURL);
 //normalize navigator.getUserMedia
 navigator.getUserMedia || (navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
 
-// if (typeof navigator.getUserMedia === "function") {
-function border() {
-		
+window.mode = '';
 
+function stop() {
+	window.mode = '';
 }
-function color() {
 
+function background() {
+		
     (function() {	
+		
+		window.mode = 'color'
 		
         var video = document.createElement('video'),
             canvas = document.querySelector('canvas'),
@@ -80,7 +83,7 @@ function color() {
 			
 
             // And repeat.
-            setTimeout(processWebcamVideo, 50);
+			if (window.mode == 'color') setTimeout(processWebcamVideo, 50);
         }
 		
 		function checkColor(i, pix) {
@@ -104,32 +107,6 @@ function color() {
 			
 			return true;
 		}
-		
-        function detectFaces() {
-            // What do these parameters mean?
-            // I couldn't find any documentation, and used what was found here:
-            // https://github.com/liuliu/ccv/blob/unstable/js/index.html
-
-            return ccv.detect_objects({canvas : (ccv.pre(canvas)), cascade: cascade, interval: 2, min_neighbors: 1});
-        }
-
-        // Draw found faces onto the canvas
-        function highlightFaces(faces) {
-            if(!faces) {
-                return false;
-            }
-
-            for (var i = 0; i < faces.length; i++) {
-                var face = faces[i];
-                context.fillRect(face.x, face.y, face.width, face.height);
-            }
-        }
-
-        function scaleContent(newFace) {
-            var scaleFactor = originalFace.height / newFace.height;
-            // content.style.setProperty('-o-transform', 'scale('+scaleFactor+')');
-            // content.style.setProperty('-webkit-transform', 'scale('+scaleFactor+')');
-        }
 
     })();
 }

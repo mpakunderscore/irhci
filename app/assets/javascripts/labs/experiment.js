@@ -1,34 +1,17 @@
-// Normalize getUserMedia and URL
-// https://gist.github.com/f2ac64ed7fc467ccdfe3
-
-//normalize window.URL
-window.URL || (window.URL = window.webkitURL || window.msURL || window.oURL);
-
-//normalize navigator.getUserMedia
-navigator.getUserMedia || (navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
-
-// if (typeof navigator.getUserMedia === "function") {
-function foo() {
+function face() {
 
     (function() {
+		
+		window.mode = 'face'
 
         var video = document.createElement('video'),
             content = document.querySelector('.transforming-content'),
             canvas = document.querySelector('canvas'),
             context = canvas.getContext('2d'),
-            mask = new Image(),
             originalFace,
-
-            // Quick hack for two experiment types
-            // SCALE_EXPERIMENT = 'scale',
-            // MASK_EXPERIMENT = 'mask',
-            // experimentType = /mask/.test(canvas.className) ? MASK_EXPERIMENT : SCALE_EXPERIMENT,
-
-            // toString for older gUM implementation, see comments on https://gist.github.com/f2ac64ed7fc467ccdfe3
             gUMOptions = {video: true, toString: function(){ return "video"; }};
 
         video.setAttribute('autoplay', true);
-        // mask.src = "img/mask.png";
         context.fillStyle = "rgba(0, 0, 200, 0.5)";
         navigator.getUserMedia(gUMOptions, handleWebcamStream, errorStartingStream);
 
@@ -52,9 +35,6 @@ function foo() {
             context.drawImage(video, 0, 0, canvas.width, canvas.height);
             faces = detectFaces();
 
-            // if(experimentType === MASK_EXPERIMENT) {
-                // drawMasks(faces);
-            // } else {
                 highlightFaces(faces);
 
                 if(originalFace && faces.length > 0) {
@@ -64,13 +44,13 @@ function foo() {
                 if( ! originalFace && faces.length === 1) {
                     originalFace = faces[0];
                 }
-            // }
 
-            // Log process time
+
             console.log(+new Date() - startTime);
 
             // And repeat.
-            setTimeout(processWebcamVideo, 50);
+			if (window.mode == 'face') setTimeout(processWebcamVideo, 50);
+
         }
 
         function detectFaces() {
