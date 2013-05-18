@@ -1,8 +1,8 @@
 #box {
   position: absolute;
   left: 50%;
-  bottom: 200px;
-  perspective: 400px;
+  bottom: 50%;
+  perspective: 300px;
 }
 .threedee {
   position: absolute;
@@ -23,5 +23,12 @@
 @keyframes spin {
   to {
     transform: rotateY(360deg) rotateZ(360deg) rotateX(720deg);
+/*	  transform: rotateX(180deg) rotateY(180deg);*/
   }
+}
+
+#back {
+	position: absolute;
+    left: 50%;
+    bottom: 50%;
 }

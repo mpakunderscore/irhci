@@ -70,31 +70,31 @@ function background() {
 			var imgd = context.getImageData(0, 0, canvas.width, canvas.height);
 			var pix = imgd.data;
 
-			var k = 25, a = 0, j = 0;
+			var k = 5, a = 0, j = 0;
 
-			for (var i = 0, n = pix.length; i < n; i += 4) {
+			for (var i = 0, n = pix.length; i < n; i += 3) {
 				
 				if (!checkColor(i, pix)) {
-					pix[i] = 255;
-					pix[i+1] = 0;
-					pix[i+2] = 0;
 					
 					a++;					
-					if (a == k && j == 0) j = i - k * 3;
+					if (a > k) {
+						pix[i] = 255;
+						pix[i+1] = 0;
+						pix[i+2] = 0;
+					} 
+					if (j == 0) j = i - k * 3;
 					
 				} else a = 0;					
 			}
 			
 			if (j != 0) for (var i = j; i < j + k * 3; i++) pix[i] = 255;			
 			
-			var x = Math.floor(Math.floor(j/3)%canvas.height);
-			var y = Math.floor(Math.floor(j/3)/canvas.height);
+			// var x = Math.floor(Math.floor(j/3)%canvas.height);
+			// var y = Math.floor(Math.floor(j/3)/canvas.height);
 			// console.log(j+"/"+x+"/"+y)
 			
 			context.putImageData(imgd, 0, 0);
-			
-			// context.fillRect(x, y, 5, 5);
-			
+						
 			var time = document.getElementById("time");
 			time.innerHTML = (+new Date() - startTime);
 			

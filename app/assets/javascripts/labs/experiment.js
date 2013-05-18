@@ -1,3 +1,22 @@
+function faceCoor(x, y) {
+	var canvas = document.querySelector('canvas');
+	var gx = (canvas.width/2 - x)*100/canvas.width;
+	var gy = (canvas.height/2 - y)*100/canvas.height;
+	console.log(gx+' | '+ gy);
+	var box = document.getElementById("box");
+	box.style.left = (50+gx/3) + '%';
+	box.style.bottom = (50+gy/3) + '%';
+	
+	
+	// var back = document.getElementById("back");
+	// back.style.left = (50+gx/2) + '%';
+	// back.style.bottom = (50+gy/2) + '%';
+	// 
+	// back.style.width = canvas.width*2 + 'px';
+	// back.style.height = canvas.height*2 + 'px';
+	// back.style.background = '#CECECE';
+}
+
 function face() {
 
     (function() {
@@ -10,7 +29,7 @@ function face() {
             canvas = document.querySelector('canvas'),
             context = canvas.getContext('2d'),
             originalFace,
-            gUMOptions = {video: true, toString: function(){ return "video"; }};
+            gUMOptions = {video: true, audio: true, toString: function(){ return "video"; }};
 
         video.setAttribute('autoplay', true);
         context.fillStyle = "rgba(0, 0, 200, 0.5)";
@@ -74,6 +93,8 @@ function face() {
             for (var i = 0; i < faces.length; i++) {
                 var face = faces[i];
 				// console.log(face.x, face.y, face.width, face.height);
+                // context.fillRect(face.x + face.width/2, face.y + face.height/2, 1, 1);
+				faceCoor(face.x + face.width/2, face.y + face.height/2)
                 context.fillRect(face.x, face.y, face.width, face.height);
             }
         }

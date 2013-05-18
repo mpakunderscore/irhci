@@ -16,9 +16,7 @@
 	  ga('create', 'UA-40320768-1', 'irhci.com');
 	  ga('send', 'pageview');
 	</script>
-	
-	<div id="box"></div>
-	
+			
 	<div class="header">
 		<div id="title">Independent Research. HCI</div>
 		<div id="menu">
@@ -27,10 +25,11 @@
           <%= link_to 'About', {:controller => 'home', :action => 'about'} %>
 		</div>
 	</div>
-
+	
 	<div id="main">
 		<%= yield(:head) %>
 		<%= yield %>
 	</div>
+	
 </body>
 </html>

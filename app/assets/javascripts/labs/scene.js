@@ -33,6 +33,7 @@ function createTube(dia, height, sides, texture) {
     return tube;
 }
 function createBarrel() {
+	var attitude = document.getElementById("main").offsetWidth/document.getElementById("main").offsetHeight;
     var barrel = createTube(100, 100, 4, DRUM_TEXTURE);
     barrel.appendChild(createFace(100, 100, 0, 50, 0, Math.PI / 2, 0, 0, DRUM_TEXTURE, 0, 100));
     barrel.appendChild(createFace(100, 100, 0, -50, 0, -Math.PI / 2, 0, 0, DRUM_TEXTURE, 0, 100));
