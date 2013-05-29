@@ -8,6 +8,9 @@ function createAssembly() {
 }
 function createFace(w, h, x, y, z, rx, ry, rz, tsrc, tx, ty) {
     var face = document.createElement("div");
+	// face.onclick = "something()"
+	// face.style.cursor = "pointer";
+	var op = 1;
     face.className = "threedee face";
     face.style.cssText = PrefixFree.prefixCSS(
         // "background: url(" + tsrc + ") -" + tx.toFixed(2) + "px " + ty.toFixed(2) + "px;" +
@@ -16,7 +19,7 @@ function createFace(w, h, x, y, z, rx, ry, rz, tsrc, tx, ty) {
         "height:" + h.toFixed(2) + "px;" +
         "margin-top: -" + (h / 2).toFixed(2) + "px;" +
         "margin-left: -" + (w / 2).toFixed(2) + "px;" +
-        "transform: translate3d(" + x.toFixed(2) + "px," + y.toFixed(2) + "px," + z.toFixed(2) + "px)" +
+        "transform: translate3d(" + x.toFixed(2)*op + "px," + y.toFixed(2)*op + "px," + z.toFixed(2)*op + "px)" +
         "rotateX(" + rx.toFixed(2) + "rad) rotateY(" + ry.toFixed(2) + "rad) rotateY(" + rz.toFixed(2) + "rad);");
     return face;
 }
@@ -33,7 +36,6 @@ function createTube(dia, height, sides, texture) {
     return tube;
 }
 function createBarrel() {
-	var attitude = document.getElementById("main").offsetWidth/document.getElementById("main").offsetHeight;
     var barrel = createTube(100, 100, 4, DRUM_TEXTURE);
     barrel.appendChild(createFace(100, 100, 0, 50, 0, Math.PI / 2, 0, 0, DRUM_TEXTURE, 0, 100));
     barrel.appendChild(createFace(100, 100, 0, -50, 0, -Math.PI / 2, 0, 0, DRUM_TEXTURE, 0, 100));

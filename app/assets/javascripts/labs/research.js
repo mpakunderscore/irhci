@@ -8,6 +8,7 @@ window.URL || (window.URL = window.webkitURL || window.msURL || window.oURL);
 navigator.getUserMedia || (navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
 
 window.mode = '';
+window.disclosure = 1;
 
 var localStream;
 
