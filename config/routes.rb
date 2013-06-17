@@ -1,6 +1,6 @@
 Irhci::Application.routes.draw do
   #get "obstacle"
-  # post "/labs/upload"
+  post "/labs/upload"
 
   # get "/labs/experiment.js"
   # The priority is based upon order of creation:
@@ -53,15 +53,23 @@ Irhci::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'home#about'
+  match 'culture' => 'culture#index', :as => :culture
   match 'labs' => 'labs#index', :as => :labs
-  match 'vox' => 'vox#index', :as => :vox
-  match 'about' => 'home#about', :as => :about
-  # match 'labs/upload' => 'labs#index', :as => :labs
-  # match 'labs/save' => 'labs#save', :as => :labs
+  match 'vox' => 'vox#overview'
   
+  match 'vox/overview' => 'vox#overview' 
   match 'vox/technologies' => 'vox#technologies'
   match 'vox/application' => 'vox#application'
   match 'vox/old' => 'vox#old'
+  
+  match 'labs/language' => 'labs#language'
+  match 'labs/upload' => 'labs#index', :as => :labs
+  match 'labs/save' => 'labs#save', :as => :labs
+  
+  match 'about' => 'home#about'
+  match 'team' => 'home#team'
+  match 'me' => 'home#me'
+  
   #See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

@@ -1,11 +1,16 @@
 class LabsController < ApplicationController
 
+def language
+    @words = {"" => 0}
+    @words.clear
+    render 'labs/language.html.erb'
+end
+
 def index
-  @words = {"" => 0}
-  @words.clear
 end
 
 def upload    
+  
   
   # name = params[:upload][:datafile].original_filename
   words = {"" => 0}
@@ -27,7 +32,7 @@ def upload
   
 
   @words = words.sort {|a,b| b[1] <=> a[1]}
-  render :action => :index
+  render :action => :language
 end
 
 def save

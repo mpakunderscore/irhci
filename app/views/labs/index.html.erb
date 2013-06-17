@@ -1,6 +1,13 @@
 <% javascript 'labs.js' %>
 <% stylesheet 'labs.css' %>
 
+<!-- <div id="menu2" align="center" >
+<p>
+rendering
+<%= link_to 'language', {:controller => 'labs', :action => 'language'} %>
+</p>
+</div> -->
+
 <p>
 <a href="#" onclick='face()'>(ccv) face detect</a> / 
 <a href="#" onclick='background()'>background subtraction algorithm</a> / 
@@ -11,11 +18,10 @@
 <div class="wrapper">
 	<canvas width="200" height="160" class="scale" style="border: 1px solid #CECECE"></canvas>
 </div>
-<p>time: <var id="time"></var></p>
+<p>fps: <var id="time"></var></p>
 
-<!-- <input x-webkit-speech> -->
-
-<div id="labs_help">
+<div id="help">
+<p>Demonstration of various rendering capabilities.</p>
 <p>Works best in <a href="https://chrome.google.com">Google Chrome</a>.</p>
 <p>Still requires chrome users to activate Media Source in <i>chrome://flags/:</i></p>
 <p><a href="http://caniuse.com/stream">Can I use</a> getUserMedia/Stream API?</p>

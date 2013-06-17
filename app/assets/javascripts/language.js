@@ -2,6 +2,11 @@
 // $(document).on('click', '#nani', function () {
 // $('[role="overlay"]').add('[role="popup"].show()');
 //                             });
+
+function checkAudio() {
+    alert(document.getElementById("speechInput").value);
+}
+
 function showPopup() {
 	var words = document.getElementById("words")
 	var count = words.rows.length
