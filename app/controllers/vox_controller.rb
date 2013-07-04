@@ -2,6 +2,10 @@ class VoxController < ApplicationController
   def index
   end
   
+  def team
+    render 'vox/team.html.erb'
+  end
+  
   def overview
     render 'vox/overview.html.erb'
   end

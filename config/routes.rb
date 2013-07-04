@@ -60,6 +60,7 @@ Irhci::Application.routes.draw do
   match 'vox/overview' => 'vox#overview' 
   match 'vox/technologies' => 'vox#technologies'
   match 'vox/application' => 'vox#application'
+  match 'vox/team' => 'vox#team'
   match 'vox/old' => 'vox#old'
   
   match 'labs/language' => 'labs#language'
@@ -67,7 +68,6 @@ Irhci::Application.routes.draw do
   match 'labs/save' => 'labs#save', :as => :labs
   
   match 'about' => 'home#about'
-  match 'team' => 'home#team'
   match 'me' => 'home#me'
   
   #See how all your routes lay out with "rake routes"
