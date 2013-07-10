@@ -12,7 +12,7 @@ div.header a:visited {text-decoration: none;}
 div.header a:hover {text-decoration: underline;}
 div.header a:active {text-decoration: none;}
 
-p {width: 700px;}
+p {width: 650px;}
 
 #title {position: absolute; bottom: 10px; left: 15px;}
 #menu {position: absolute; bottom: 10px; right: 15px;}
@@ -44,7 +44,11 @@ p {width: 700px;}
 }
 
 #main {
-	font-family: "Verdana";
+	color: #333;
+	font: 15px helvetica,arial,freesans,clean,sans-serif;
+	line-height: 1.4; 
+/*	font-family: "Verdana";*/
+
     position: absolute;
     overflow: auto;
     top: 0px;
