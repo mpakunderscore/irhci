@@ -58,6 +58,10 @@ p {width: 650px;}
 /*	border:1px solid #CECECE;*/
 }
 
+#main a {color: #3489bb}
+#main a:link {text-decoration: none;}
+#main a:hover {text-decoration: underline;}
+
 @font-face {
     font-family: "Gotham Light";
     src: url(gotham_light.ttf) format("truetype");
