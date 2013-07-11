@@ -17,10 +17,6 @@
 	  ga('send', 'pageview');
 	</script>
 	
-	<div id="labs">
-		<!-- <div id="back"></div> -->
-		<div id="box"></div>	
-	</div>		
 			
 	<div class="header">
 		<div id="title">Independent Research. HCI <!-- <img src="assets/box_s.png"> --></div>
@@ -28,7 +24,9 @@
 		<div id="menu">
 		  
         	<!-- <%= link_to 'Culture', {:controller => 'culture', :action => 'index'} %> -->
-			<!-- <a href="">Action</a> -->
+			<!-- <a href=""></a> -->
+        	<%= link_to 'Actions', {:controller => 'actions', :action => 'index'} %>
+			
         	<%= link_to 'Labs', {:controller => 'labs', :action => 'index'} %>
 
         	<%= link_to 'Vox', {:controller => 'vox', :action => 'overview'} %>

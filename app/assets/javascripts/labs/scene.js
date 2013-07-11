@@ -10,7 +10,7 @@ function createFace(w, h, x, y, z, rx, ry, rz, tsrc, tx, ty) {
     var face = document.createElement("div");
 	// face.onclick = "something()"
 	// face.style.cursor = "pointer";
-	var op = 1.5;
+	var op = 1.0;
     face.className = "threedee face";
     face.style.cssText = PrefixFree.prefixCSS(
         // "background: url(" + tsrc + ") -" + tx.toFixed(2) + "px " + ty.toFixed(2) + "px;" +
@@ -37,7 +37,7 @@ function createTube(dia, height, sides, texture) {
 }
 function createBarrel() {
 	
-	var size = 50;
+	var size = 70;
     var barrel = createTube(size, size, 4, DRUM_TEXTURE);
     barrel.appendChild(createFace(size, size, 0, size/2, 0, Math.PI / 2, 0, 0, DRUM_TEXTURE, 0, 100));
     barrel.appendChild(createFace(size, size, 0, -size/2, 0, -Math.PI / 2, 0, 0, DRUM_TEXTURE, 0, 100));

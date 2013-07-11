@@ -56,6 +56,7 @@ Irhci::Application.routes.draw do
   match 'culture' => 'culture#index', :as => :culture
   match 'labs' => 'labs#index', :as => :labs
   match 'vox' => 'vox#overview'
+  match 'actions' => 'actions#index'
   
   match 'vox/overview' => 'vox#overview' 
   match 'vox/technologies' => 'vox#technologies'

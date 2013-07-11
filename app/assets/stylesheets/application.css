@@ -39,10 +39,11 @@ p {width: 600px;}
 }
 
 #help {
-	width: 50%;
+/*	width: 50%;*/
 	padding-top: 50px;
 	text-align: center;
 	margin: 0 auto;
+	padding: 25px;
 /*	border:1px solid #CECECE;*/
 	
 	color: #333;
@@ -61,9 +62,12 @@ p {width: 600px;}
 	font: 15px helvetica,arial,freesans,clean,sans-serif;
 	line-height: 1.4;
 
-	width: 50%;
-	margin: 0 auto;
-	width: 1000px;
+	padding-left: 80px;
+	padding-right: 80px;
+	
+/*	width: 50%;*/
+/*	margin: 0 auto;*/
+/*	width: 1000px;*/
 
 /*	border:1px solid #CECECE;*/
 }
