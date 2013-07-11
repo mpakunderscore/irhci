@@ -7,7 +7,7 @@ rendering
 <%= link_to 'language', {:controller => 'labs', :action => 'language'} %>
 </p>
 </div> -->
-
+<div id="main">
 <p>
 <a href="#" onclick='face()'>(ccv) face detect</a> / 
 <a href="#" onclick='background()'>background subtraction algorithm</a> / 
@@ -16,9 +16,12 @@ rendering
 </p>
 
 <div class="wrapper">
-	<canvas width="200" height="160" class="scale" style="border: 1px solid #CECECE"></canvas>
+	<canvas width="200" height="160"  class="scale" style="border: 1px solid #CECECE"></canvas>
 </div>
+
 <p>fps: <var id="time"></var></p>
+</div>
+
 
 <div id="help">
 <p>Demonstration of various rendering capabilities.</p>

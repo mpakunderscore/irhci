@@ -18,25 +18,29 @@
 	</script>
 	
 	<div id="labs">
-		<div id="back"></div>
+		<!-- <div id="back"></div> -->
 		<div id="box"></div>	
 	</div>		
 			
 	<div class="header">
-		<div id="title">Independent Research. HCI</div>
+		<div id="title">Independent Research. HCI <!-- <img src="assets/box_s.png"> --></div>
+		<!-- style="margin-left: 30px; margin-bottom: 30px; margin-top: 30px;" -->
 		<div id="menu">
-          <!-- <%= link_to 'Culture', {:controller => 'culture', :action => 'index'} %> -->
-          <%= link_to 'Labs', {:controller => 'labs', :action => 'index'} %>
-          <%= link_to 'Vox', {:controller => 'vox', :action => 'overview'} %>
-          <%= link_to 'About', {:controller => 'home', :action => 'me'} %>
+		  
+        	<!-- <%= link_to 'Culture', {:controller => 'culture', :action => 'index'} %> -->
+			<!-- <a href="">Action</a> -->
+        	<%= link_to 'Labs', {:controller => 'labs', :action => 'index'} %>
+
+        	<%= link_to 'Vox', {:controller => 'vox', :action => 'overview'} %>
+        	<%= link_to 'About', {:controller => 'home', :action => 'me'} %>
 		</div>
 	</div>
 	
 	<div id="container">
-		<div id="main">
+		<!-- <div id="main"> -->
 			<%= yield(:head) %>
 			<%= yield %>
-		</div>
+		<!-- </div> -->
 	</div>
 	
 </body>

@@ -12,7 +12,7 @@ div.header a:visited {text-decoration: none;}
 div.header a:hover {text-decoration: underline;}
 div.header a:active {text-decoration: none;}
 
-p {width: 650px;}
+p {width: 600px;}
 
 #title {position: absolute; bottom: 10px; left: 15px;}
 #menu {position: absolute; bottom: 10px; right: 15px;}
@@ -20,17 +20,12 @@ p {width: 650px;}
 #menu2 {	
    	font-family: "Gotham Light", Helvetica, Arial, sans-serif;	
 	font-size: 15px;
-	height: 30px;
+/*	height: 30px;*/
+/*	border:1px solid #CECECE;*/
+	padding-bottom: 10px;
 }
-
-#menu2 a {color: #000; font-size: 15px; }
-#menu2 a:link {text-decoration: underline;}
-
-#help {
-    position: absolute;
-	bottom: 0px;
-	font-size: 13px;	
-}
+#menu2 a {color: #000; font-size: 15px; border-bottom: 1px dotted;}
+#menu2 a:link {text-decoration: none;} /*underline*/
 
 #container {
     position: absolute;	
@@ -43,18 +38,33 @@ p {width: 650px;}
 	background-position: 100% 100%;
 }
 
+#help {
+	width: 50%;
+	padding-top: 50px;
+	text-align: center;
+	margin: 0 auto;
+/*	border:1px solid #CECECE;*/
+	
+	color: #333;
+	font: 13px helvetica,arial,freesans,clean,sans-serif;
+	line-height: 1.4; 
+
+}
+
+#help a {color: #3489bb}
+#help a:link {text-decoration: none;}
+#help a:hover {text-decoration: underline;}
+
+
 #main {
 	color: #333;
 	font: 15px helvetica,arial,freesans,clean,sans-serif;
-	line-height: 1.4; 
-/*	font-family: "Verdana";*/
+	line-height: 1.4;
 
-    position: absolute;
-    overflow: auto;
-    top: 0px;
-    left:50px;
-    right:50px;	
-    bottom: 30px;
+	width: 50%;
+	margin: 0 auto;
+	width: 1000px;
+
 /*	border:1px solid #CECECE;*/
 }
 
