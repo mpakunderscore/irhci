@@ -40,7 +40,9 @@ p {width: 600px;}
 
 #help {
 /*	width: 50%;*/
-	padding-top: 50px;
+/*	padding-top: 10px;*/
+    position: absolute;
+    bottom: 0px;
 	text-align: center;
 	margin: 0 auto;
 	padding: 25px;
