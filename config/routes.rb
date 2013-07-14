@@ -53,9 +53,11 @@ Irhci::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'home#me'
-  match 'culture' => 'culture#index', :as => :culture
-  match 'labs' => 'labs#index', :as => :labs
   match 'vox' => 'vox#overview'
+  match 'labs' => 'labs#index', :as => :labs
+  match 'projects' => 'projects#index'
+
+  match 'culture' => 'culture#index', :as => :culture  
   match 'actions' => 'actions#index'
   
   match 'vox/overview' => 'vox#overview' 

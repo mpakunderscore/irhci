@@ -48,3 +48,8 @@
 
 #close a {color: #000}
 #close a:link {text-decoration: none;}
+
+#action {
+	position: absolute;
+	border:1px solid #CECECE;
+}

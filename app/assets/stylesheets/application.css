@@ -41,13 +41,18 @@ p {width: 600px;}
 #help {
 /*	width: 50%;*/
 /*	padding-top: 10px;*/
-/*    position: absolute;*/
-/*    bottom: 0px;*/
-	text-align: left;
+    position: absolute;
+    bottom: 0px;
+/*	position: relative;*/
+/*	text-align: left;*/
 	margin: 0 auto;
-	padding-left: 80px;
-	padding-top: 25px;
-	padding-bottom: 25px;
+	padding: 20px;
+/*	padding-left: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+*/	border-top: 1px dashed #CECECE;
+    background: #fff;
+
 /*	border:1px solid #CECECE;*/
 	
 	color: #333;
@@ -66,12 +71,13 @@ p {width: 600px;}
 	font: 15px helvetica,arial,freesans,clean,sans-serif;
 	line-height: 1.4;
 
-	padding-left: 80px;
-	padding-right: 80px;
+	padding-left: 30px;
+	padding-bottom: 30px;
 	
-/*	width: 50%;*/
-/*	margin: 0 auto;*/
-/*	width: 1000px;*/
+	width: 1100px;
+	
+
+	margin: 0 auto;
 
 /*	border:1px solid #CECECE;*/
 }
@@ -83,4 +89,38 @@ p {width: 600px;}
 @font-face {
     font-family: "Gotham Light";
     src: url(gotham_light.ttf) format("truetype");
+}
+
+/*Initialize*/
+ul#menu3, ul#menu3 ul.sub-menu {
+    padding-top: 20px;  
+    padding-left:0;
+/*	  padding:0;*/
+    margin: 0;
+}
+ul#menu3 li, ul#menu3 ul.sub-menu li {
+    list-style-type: none;
+    display: inline-block;
+}
+/*Link Appearance*/
+ul#menu3 li a, ul#menu3 li ul.sub-menu li a {
+
+	padding-top: 5px;  
+    padding-bottom: 5px;  
+    display: inline-block;
+}
+/*Make the parent of sub-menu relative*/
+ul#menu3 li {
+    position: relative;
+}
+/*sub menu*/
+ul#menu3 li ul.sub-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100px;
+}
+ul#menu3 li:hover ul.sub-menu {
+    display: inherit;
 }

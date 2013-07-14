@@ -3,7 +3,7 @@
 
 <div id="menu2" align="center">
 <p>
-<%= link_to 'rendering', {:controller => 'labs', :action => 'index'} %>
+<%= link_to 'labs', {:controller => 'labs', :action => 'index'} %>
 language
 </p>
 </div>
@@ -12,7 +12,7 @@ language
 Analysis of the text data for improved delivery of necessary materials (project culture). Alpha.
 </div>
 
-<div>
+<div id="main">
 	<table border="0">
 	<tr>
 	<td>Select text file (.txt or etc): </td>
@@ -28,7 +28,7 @@ Analysis of the text data for improved delivery of necessary materials (project 
 	</tr>
 	</table>
 
-<p>Or say something: <input id="speechInput" type="text" style="font-size:15px;" x-webkit-speech onwebkitspeechchange="checkAudio()"></p>
+<!-- <p>Or say something: <input id="speechInput" type="text" style="font-size:15px;" x-webkit-speech onwebkitspeechchange="checkAudio()"></p> -->
 
 <div id="overlay">
 	<div id="popup">

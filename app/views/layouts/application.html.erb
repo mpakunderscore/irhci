@@ -22,15 +22,43 @@
 		<div id="title">Independent Research. HCI <!-- <img src="assets/box_s.png"> --></div>
 		<!-- style="margin-left: 30px; margin-bottom: 30px; margin-top: 30px;" -->
 		<div id="menu">
-		  
+			<ul id="menu3">
+			    <li><%= link_to 'Projects', {:controller => 'projects', :action => 'index'} %>↯
+
+			        <ul class="sub-menu">
+			            <li>
+			                <%= link_to 'Actions', {:controller => 'actions', :action => 'index'} %>↯
+			            </li>
+			            <li>
+							<%= link_to 'Culture', {:controller => 'culture', :action => 'index'} %>
+			            </li>
+			            <li>
+							<%= link_to 'Language', {:controller => 'labs', :action => 'language'} %> 
+			            </li>
+			        </ul>
+			    </li>
+
+				<li>
+		        	<%= link_to 'Labs', {:controller => 'labs', :action => 'index'} %>
+				</li>
+				<li>
+		        	<%= link_to 'Vox', {:controller => 'vox', :action => 'overview'} %>
+				</li>
+								
+				<li>
+       	        	<%= link_to 'About', {:controller => 'home', :action => 'me'} %>
+				</li>
+								
+			</ul>
         	<!-- <%= link_to 'Culture', {:controller => 'culture', :action => 'index'} %> -->
 			<!-- <a href=""></a> -->
         	<!-- <%= link_to 'Actions', {:controller => 'actions', :action => 'index'} %> -->
+
 			
-        	<%= link_to 'Labs', {:controller => 'labs', :action => 'index'} %>
+        	<!-- <%= link_to 'Labs', {:controller => 'labs', :action => 'index'} %>
 
         	<%= link_to 'Vox', {:controller => 'vox', :action => 'overview'} %>
-        	<%= link_to 'About', {:controller => 'home', :action => 'me'} %>
+        	<%= link_to 'About', {:controller => 'home', :action => 'me'} %> -->
 		</div>
 	</div>
 	

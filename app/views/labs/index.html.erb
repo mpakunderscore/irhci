@@ -8,14 +8,16 @@ rendering
 </p>
 </div> -->
 <div id="main">
+<div id="mod">
 <p>
-[ <a href="#" onclick='face()'>(ccv) face detect</a> / 
+<a href="#" onclick='face()'>(ccv) face detect</a> / 
 <a href="#" onclick='background()'>background subtraction algorithm</a> / 
 <a href="#" onclick='something()'>something</a> / 
-<a href="#" onclick='stop()'>stop</a> ]
+<a href="#" onclick='stop()'>stop</a>
 </p>
+</div>
 
-<p>Demonstration of various rendering capabilities.</p>
+<p>Demonstration of various capabilities.</p>
 <p>Works best in <a href="https://chrome.google.com">Google Chrome</a>.</p>
 <p>Still requires chrome users to activate Media Source in <i>chrome://flags/:</i></p>
 <p><a href="http://caniuse.com/stream">Can I use</a> getUserMedia/Stream API?</p>
@@ -34,9 +36,6 @@ rendering
 </div>
 
 
-<div id="help">
-<!-- <ol>
-</ol> -->
-</div>
+<div id="help"><a href="#" onclick='show_input()'>?</a><input id="voice" x-webkit-speech /></div>
 
 <script type="text/javascript">box()</script>

@@ -1,3 +1,5 @@
+//= require_tree ./actions
+
 function showPopup() {	
 	document.getElementById("overlay").style.visibility = "visible"
 	document.getElementById("popup").style.visibility = "visible"
