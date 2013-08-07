@@ -1,39 +1,59 @@
-<% javascript 'actions.js' %>
 <% stylesheet 'actions.css' %>
+
 
 <div id="menu2" align="center">
 <p>
-<a href="">add</a> -
-<a href="">find</a> -
-<a href="">mine</a> -
-<a href="">random</a> -
-<a href="">logout</a> - 
-<!-- en / <a href="">ru</a> -->
-<!-- <%= link_to 'technologies', {:controller => 'vox', :action => 'technologies'} %> -
-<%= link_to 'application', {:controller => 'vox', :action => 'application'} %> -
-<%= link_to 'team', {:controller => 'vox', :action => 'team'} %> -->
+<a href="#" onclick='showAdd()'>add</a> -
+<a href="#">find</a> -
+<!-- <a href="">mine</a> - -->
+mine -
+<a href="#">random</a> -
+<a href="#" onclick='showLogin()'>login</a> - 
+en / <a href="#">ru</a>
 </p>
 </div>
 
 <div id="main">
-	
-	<div>
-	<div id="action">
+	<center><p>Explore</p></center>
+	<!-- <div id="action">
 		<a href='#' onclick='showPopup()'>word</a>	
-	</div>
-	
+	</div> -->
+
+	<center><canvas id="viewport" width="1000" height="600"></canvas></center>
+
 	<div id="overlay">
-		<div id="popup">
+		<div id="add">						
+			<div id="close" class="square"><a href='#' onclick='closeAdd()'>x</a></div>		
 						
-			<div id="close" class="square"><a href='#' onclick='closePopup()'>x</a></div>
-		
-			<b>Some word</b>
-			<p>All I did was add those 2 properties and a doctype to the OP's example HTML. However on further testing it seems that IE7 (or 8 in compat mode) is the problem - it seems it does not respect the value of the right property if left is also set! ( msdn.microsoft.com/en-us/library/… notes that left and right only have "partial" support in IE7). OK, I concede this solution is no good if IE7 support is important, but a great trick to remember for the future :) – Will Prescott Jan 5 '10 at 16:00</p>
-			<p>Some word</p>
-			<p>Some word</p>
+			<table border="0">
+				
+				<%= form_for :action_, url: actions_path do |f| %>
+				<tr><td align="right">add some action</td><td></td></tr>				
+				<tr><td><%= f.text_field :name, :value => "jump with a parachute" %></td><td>name</td></tr>				
+				<tr><td><%= f.text_field :tags, :value => "extreme,sky,adrenaline" %></td></td><td>tags</tr>						
+				<tr><td align="right"><%= f.submit %></td><td></td></tr>
+				<% end %>
+				
+			</table>
 		</div>
+		<div id="login">	
+								
+			<div id="close" class="square"><a href='#' onclick='closeLogin()'>x</a></div>		
+
+			<table border="0">					
+					
+				<tr><td align="right">sign in</td><td></td></tr>
+				<tr><td><input type="email" name="email"></td><td>email</td></tr>				
+				<tr><td><input type="password" name="password"></td></td><td>password</tr>						
+				<tr><td align="right"><a href="#" onclick='login()'>enter</a></td><td></td></tr>
+								
+			</table>			
+		</div>
+		
 	</div>	
 </div>
 
-<div id="help">
-</div>
+<% javascript 'actions.js' %>
+
+<!-- <div id="help">
+</div> -->

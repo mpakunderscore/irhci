@@ -1,6 +1,6 @@
 //= require_tree ./labs
 
-function show_input() {	
+function show_input() {
 	if (document.getElementById("voice").style.visibility != "visible")
 		document.getElementById("voice").style.visibility = "visible"
 	else 

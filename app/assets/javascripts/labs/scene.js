@@ -6,15 +6,17 @@ function createAssembly() {
     assembly.className = "threedee assembly";
     return assembly;
 }
-function createFace(w, h, x, y, z, rx, ry, rz, tsrc, tx, ty) {
+function createFace(w, h, x, y, z, rx, ry, rz, mod, tx, ty) {
     var face = document.createElement("div");
 	// face.onclick = "something()"
 	// face.style.cursor = "pointer";
 	var op = 1.0;
-    face.className = "threedee face";
+	face.id = mod;
+    face.className = "threedee "+mod;
     face.style.cssText = PrefixFree.prefixCSS(
         // "background: url(" + tsrc + ") -" + tx.toFixed(2) + "px " + ty.toFixed(2) + "px;" +
-		// "background-color:orange;" +
+		// "background-color: #CECECE;" +
+		// "background-color: rgba(255, 255, 0, 0.9);"
         "width:" + w.toFixed(2) + "px;" +
         "height:" + h.toFixed(2) + "px;" +
         "margin-top: -" + (h / 2).toFixed(2) + "px;" +
@@ -23,7 +25,7 @@ function createFace(w, h, x, y, z, rx, ry, rz, tsrc, tx, ty) {
         "rotateX(" + rx.toFixed(2) + "rad) rotateY(" + ry.toFixed(2) + "rad) rotateY(" + rz.toFixed(2) + "rad);");
     return face;
 }
-function createTube(dia, height, sides, texture) {
+function createTube(dia, height, sides, mod) {
     var tube = createAssembly();
     var sideAngle = (Math.PI / sides) * 2;
     var sideLen = dia * Math.tan(Math.PI/sides);
@@ -31,20 +33,15 @@ function createTube(dia, height, sides, texture) {
         var x = Math.sin(sideAngle * c) * dia / 2;
         var z = Math.cos(sideAngle * c) * dia / 2;
         var ry = Math.atan2(x, z);
-        tube.appendChild(createFace(sideLen + 1, height, x, 0, z, 0, ry, 0, texture, sideLen * c, 0));
+        tube.appendChild(createFace(sideLen + 1, height, x, 0, z, 0, ry, 0, mod, sideLen * c, 0));
     }
     return tube;
 }
-function createBarrel() {
+function createBarrel(x, mod) {
 	
-	var size = 70;
-    var barrel = createTube(size, size, 4, DRUM_TEXTURE);
-    barrel.appendChild(createFace(size, size, 0, size/2, 0, Math.PI / 2, 0, 0, DRUM_TEXTURE, 0, 100));
-    barrel.appendChild(createFace(size, size, 0, -size/2, 0, -Math.PI / 2, 0, 0, DRUM_TEXTURE, 0, 100));
+	var size = 30 * x;
+    var barrel = createTube(size, size, 4, mod);
+    barrel.appendChild(createFace(size, size, 0, size/2, 0, -Math.PI / 2, 0, 0, mod, 0, 100));
+    barrel.appendChild(createFace(size, size, 0, -size/2, 0, Math.PI / 2, 0, 0, mod, 0, 100));
     return barrel;
-}
-
-function box() {
-	var box = document.getElementById("box");
-	if (box != null) box.appendChild(createBarrel());
 }

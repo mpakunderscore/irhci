@@ -1,41 +1,41 @@
-<% javascript 'labs.js' %>
 <% stylesheet 'labs.css' %>
+<% javascript 'labs.js' %>
 
-<!-- <div id="menu2" align="center" >
+<div id="menu2" align="center" >
 <p>
-rendering
-<%= link_to 'language', {:controller => 'labs', :action => 'language'} %>
+<a href="#" onclick='face()'>connect</a> - 
+<!-- <a href="#" onclick='background()'>background subtraction algorithm</a> /  -->
+<a href="#" onclick='stop()' id='stop'>stop</a><!-- stop --> -
+<a href="#" onclick='system()'>system</a>
 </p>
-</div> -->
+</div>
+
 <div id="main">
-<div id="mod">
-<p>
-<a href="#" onclick='face()'>(ccv) face detect</a> / 
-<a href="#" onclick='background()'>background subtraction algorithm</a> / 
-<a href="#" onclick='something()'>something</a> / 
-<a href="#" onclick='stop()'>stop</a>
-</p>
+<!-- <div id="mod">
+</div> -->
+
+<div class="wrapper" visibility='hidden'>
+	<canvas width="200" height="160"  class="scale"></canvas>
 </div>
 
-<p>Demonstration of various capabilities.</p>
-<p>Works best in <a href="https://chrome.google.com">Google Chrome</a>.</p>
-<p>Still requires chrome users to activate Media Source in <i>chrome://flags/:</i></p>
-<p><a href="http://caniuse.com/stream">Can I use</a> getUserMedia/Stream API?</p>
+<canvas width="200" height="160"  class="scale"></canvas>
+<!-- <p>recommended browser: <a href="https://chrome.google.com">google chrome</a></p> -->
+<!-- fps:  --><var id="time"></var>
 
+<!-- <p><a href="http://caniuse.com/stream">Can I use</a> getUserMedia/Stream API?</p> -->
+<!-- <p>Still requires chrome users to activate Media Source in <i>chrome://flags/:</i></p> -->
 
-<div class="wrapper">
-	<canvas width="200" height="160"  class="scale" style="border: 1px solid #CECECE"></canvas>
-</div>
-
-<p>fps: <var id="time"></var></p>
 <div id="labs">
 	<!-- <div id="back"></div> -->
-	<div id="box"></div>	
-</div>		
+	<div id="box">
+		<!-- I love flying cubes <3 -->
+	</div>
+	<!-- <div id="box2"></div>	 -->
+</div>
 
 </div>
 
 
-<div id="help"><a href="#" onclick='show_input()'>?</a><input id="voice" x-webkit-speech /></div>
+<div id="help"><a href="#" onclick='spin_round()'>X</a><!-- <input id="voice" x-webkit-speech /> --></div>
 
-<script type="text/javascript">box()</script>
+<script type="text/javascript">make_box()</script>

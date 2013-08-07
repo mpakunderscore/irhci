@@ -1,83 +1,29 @@
-function moveBox(x, y) {
+//normalize window.URL
+window.URL || (window.URL = window.webkitURL || window.msURL || window.oURL);
+
+//normalize navigator.getUserMedia
+navigator.getUserMedia || (navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+
+window.mode = '';
+window.disclosure = 1;
+
+var localStream;
+
+function stop() {
+	window.mode = '';
+	// document.getElementById("stop").css('');
+}
+
+function clean() {
 	
 	var canvas = document.querySelector('canvas');
-	var gx = (canvas.width/2 - x)*100/canvas.width;
-	var gy = (canvas.height/2 - y)*100/canvas.height;
+	var	context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);	
 	
-	var box = document.getElementById("box");
-	box.style.left = (50 + gx/3) + '%';
-	box.style.bottom = (50 + gy/3) + '%';
-}
-
-function something() {
-	push(1.1);
-	// rotate(1.2, 1.2);
-}
-
-function rotate(x, y) {
+	var time = document.getElementById("time");
+	time.innerHTML = ("");
 	
-	var threedee = document.getElementsByClassName("threedee face");
-	for (var i = 0; i < threedee.length; i++) {
-		
-		var old = threedee[i].style.webkitTransform.split('(');
-		var coor = [];
-
-		old[1] = "(" + old[1];
-
-		var ol = old[2].split(')')[0];
-		coor[0] = ol.substring(0, ol.length - 3)*x;
-		old[2] = "(" + coor[0] + "rad)" + old[2].split(')')[1];
-		
-		var ol = old[3].split(')')[0];
-		coor[1] = ol.substring(0, ol.length - 3)*y;		
-		old[3] = "(" + coor[1] + "rad)" + old[3].split(')')[1];
-		
-		var ol = old[4].split(')')[0];
-		coor[2] = ol.substring(0, ol.length - 3)*y;		
-		old[4] = "(" + coor[1] + "rad)" + old[4].split(')')[1];		
-		
-		var new_t = "";
-		for (var j = 0; j < old.length; j++) {
-			new_t += old[j];
-		}
-		
-		// new_t = new_t.substring(0, new_t.length - 1)
-		
-		threedee[i].style.webkitTransform = new_t;
-		
-		console.log(i + ": " + new_t);
-	}
-	
-}
-
-
-function push(x) {
-	
-	var threedee = document.getElementsByClassName("threedee face");
-	for (var i = 0; i < threedee.length; i++) {
-		
-		var old = threedee[i].style.webkitTransform.split(')');
-		var coor =  old[0].split('(')[1].split(',');
-					
-		for (var j = 0; j < coor.length; j++) {
-			coor[j] = coor[j].substring(0, coor[j].length - 2)*x;
-		}
-		
-		old[0] =  "translate3d("+coor[0]+"px, "+coor[1]+"px, "+coor[2]+"px";
-		
-		var new_t = "";
-		for (var j = 0; j < old.length; j++) {
-			new_t += old[j] + ")";
-		}
-		
-		new_t = new_t.substring(0, new_t.length - 1)
-		
-		threedee[i].style.webkitTransform = new_t;
-		
-		console.log(i + ": " + new_t);
-	}
-	
-	
+	localStream.stop()
 }
 
 function face() {
@@ -91,11 +37,12 @@ function face() {
             content = document.querySelector('.transforming-content'),
             canvas = document.querySelector('canvas'),
             context = canvas.getContext('2d'),
+            // context = canvas.getContext('2d'),
             originalFace,
-            gUMOptions = {video: true, audio: true, toString: function(){ return "video"; }};
+            gUMOptions = {video: true, audio: false, toString: function(){ return "video"; }};
 
         video.setAttribute('autoplay', true);
-        context.fillStyle = "rgba(0, 0, 200, 0.5)";
+        context.fillStyle = "rgba(255, 255, 255, 0.5)";
         navigator.getUserMedia(gUMOptions, handleWebcamStream, errorStartingStream);
 
         function handleWebcamStream(stream) {
@@ -131,7 +78,7 @@ function face() {
 
             // console.log(+new Date() - startTime);
 			var time = document.getElementById("time");
-			time.innerHTML = (+new Date() - startTime);			
+			// time.innerHTML = (+new Date() - startTime);			
 
             // And repeat.
 			if (window.mode == 'face') setTimeout(processWebcamVideo, 50);
@@ -157,8 +104,10 @@ function face() {
                 var face = faces[i];
 				// console.log(face.x, face.y, face.width, face.height);
                 // context.fillRect(face.x + face.width/2, face.y + face.height/2, 1, 1);
-				moveBox(face.x + face.width/2, face.y + face.height/2)
-                context.fillRect(face.x, face.y, face.width, face.height);
+				// moveBox(face.x + face.width/2, face.y + face.height/2)
+                context.fillRect(face.x, face.y, face.width, face.height*0.7);
+				// var imgData = ctx.getImageData(face.x, face.y, face.width, face.height*0.7);
+				stop()
             }
         }
 

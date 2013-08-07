@@ -2,7 +2,7 @@
   position: absolute;
   left: 50%;
   bottom: 50%;
-  perspective: 200px;
+  perspective: 300px;
 }
 .threedee {
   position: absolute;
@@ -13,16 +13,35 @@
   backface-visibility: hidden;
 }
 .assembly {
-  animation: spin 10s linear infinite;
+  animation: spin 15s linear infinite;
+/*  animation: glow 5s;*/
+  /*animation-delay: 3s;*/
 }
-.assembly .face {
-  outline: 1px solid #000;
-  background: #fff !important;
+.assembly .b {
+  outline: 1px dashed #ddd;
+  background-color: rgba(93, 234, 255, 0.2); //255, 255, 255, 
+/*  background: #fff !important;*/
   backface-visibility: visible;
 }
+.assembly .m {
+	outline: 1px dashed #ddd;
+  	background-color: rgba(52, 137, 187, 0.7); //255, 255, 255, 
+/*  	background: #fff !important;*/
+  	backface-visibility: visible;
+}
+.assembly .s {
+/*	animation: spin 5s linear infinite;*/
+	outline: 1px dashed #000;
+    background-color: rgba(67, 255, 248, 0.5);
+/*    background-color: rgba(255, 255, 255, 0.1);*/
+/*  background: #fff !important;*/
+
+	backface-visibility: visible;
+}
+
 @keyframes spin {
   to {
-    transform: rotateY(360deg) rotateZ(360deg) rotateX(720deg);
+    transform: rotateY(-360deg) rotateZ(-360deg) rotateX(720deg);
 /*	  transform: rotateY(20deg);*/
   }
 }
@@ -33,11 +52,10 @@
     bottom: 50%;
 }
 
-#mod a {border-bottom: 1px dotted;}
-#mod a:link {text-decoration: none;}
-
-#voice {visibility: hidden;}
-#help a {margin-right: 20px;}
-input[type=text] {
-	font: 15px helvetica,arial,freesans,clean,sans-serif;
+p {
+/*	font-size: 13px;*/
 }
+
+/*#mod a {border-bottom: 1px none;}*/
+/*#mod a:link {text-decoration: none;}*/
+/*#mod a:hover {border-bottom: 1px dashed;}*/

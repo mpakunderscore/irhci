@@ -1,6 +1,9 @@
 Irhci::Application.routes.draw do
   #get "obstacle"
   post "/labs/upload"
+  # resources :actions
+  
+  
 
   # get "/labs/experiment.js"
   # The priority is based upon order of creation:
@@ -52,6 +55,7 @@ Irhci::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+  
   root :to => 'home#me'
   match 'vox' => 'vox#overview'
   match 'labs' => 'labs#index', :as => :labs
@@ -59,6 +63,7 @@ Irhci::Application.routes.draw do
 
   match 'culture' => 'culture#index', :as => :culture  
   match 'actions' => 'actions#index'
+  match 'language' => 'language#index'
   
   match 'vox/overview' => 'vox#overview' 
   match 'vox/technologies' => 'vox#technologies'
@@ -69,9 +74,12 @@ Irhci::Application.routes.draw do
   match 'labs/language' => 'labs#language'
   match 'labs/upload' => 'labs#index', :as => :labs
   match 'labs/save' => 'labs#save', :as => :labs
-  
+
+  match 'ideas' => 'home#ideas'  
   match 'about' => 'home#about'
   match 'me' => 'home#me'
+  match 'test' => 'home#test'
+
   
   #See how all your routes lay out with "rake routes"
 

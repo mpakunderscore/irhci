@@ -1,157 +1,101 @@
 // Normalize getUserMedia and URL
 // https://gist.github.com/f2ac64ed7fc467ccdfe3
 
-//normalize window.URL
-window.URL || (window.URL = window.webkitURL || window.msURL || window.oURL);
-
-//normalize navigator.getUserMedia
-navigator.getUserMedia || (navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
-
-window.mode = '';
-window.disclosure = 1;
-
-var localStream;
-
-function stop() {
-	window.mode = '';
-}
-
-function clean() {
+function moveBox(x, y) {
 	
 	var canvas = document.querySelector('canvas');
-	var	context = canvas.getContext('2d');
-	context.clearRect(0, 0, canvas.width, canvas.height);	
+	var gx = (canvas.width/2 - x)*100/canvas.width;
+	var gy = (canvas.height/2 - y)*100/canvas.height;
 	
-	var time = document.getElementById("time");
-	time.innerHTML = ("");
-	
-	localStream.stop()
+	var box = document.getElementById("box");
+	box.style.left = (50 + gx/3) + '%';
+	box.style.bottom = (50 + gy/3) + '%';
 }
 
-function background() {
+function some() {
+	// push(1.1);
+	rotate(1.2, 1.2);
+}
+
+function rotate(x, y) {
+	
+	var threedee = document.getElementsByClassName("threedee");
+	for (var i = 0; i < threedee.length; i++) {
 		
-    (function() {	
+		var old = threedee[i].style.webkitTransform.split('(');
+		var coor = [];
+
+		old[1] = "(" + old[1];
+
+		var ol = old[2].split(')')[0];
+		coor[0] = ol.substring(0, ol.length - 3)*x;
+		old[2] = "(" + coor[0] + "rad)" + old[2].split(')')[1];
 		
-		stop();
-		window.mode = 'color'
+		var ol = old[3].split(')')[0];
+		coor[1] = ol.substring(0, ol.length - 3)*y;		
+		old[3] = "(" + coor[1] + "rad)" + old[3].split(')')[1];
 		
-        var video = document.createElement('video'),
-            canvas = document.querySelector('canvas'),
-            context = canvas.getContext('2d'),
-            originalFace,
-            gUMOptions = {video: true, toString: function(){ return "video"; }};
-
-		var colors = new Array(canvas.width * canvas.height * 3);
-		var colorsArray = new Array(canvas.width * canvas.height * 3, 10);
+		var ol = old[4].split(')')[0];
+		coor[2] = ol.substring(0, ol.length - 3)*y;		
+		old[4] = "(" + coor[1] + "rad)" + old[4].split(')')[1];		
 		
-		video.setAttribute('autoplay', true);
-
-        context.fillStyle = "rgba(0, 0, 200, 0.5)";
-        navigator.getUserMedia(gUMOptions, handleWebcamStream, errorStartingStream);
-
-        function handleWebcamStream(stream) {
-
-			localStream = stream;
-            video.src = (window.URL && window.URL.createObjectURL) ? window.URL.createObjectURL(stream) : stream;
-            processWebcamVideo();
-        }
-
-        function errorStartingStream() {
-            alert('Uh-oh, the webcam didn\'t start. Do you have a webcam? Did you give it permission? Refresh to try again.');
-        }
-
-        function processWebcamVideo() {
-
-            var startTime = +new Date(),
-                changed = false,
-                scaleFactor = 1,
-                faces;
-
-            context.drawImage(video, 0, 0, canvas.width, canvas.height);
-			var imgd = context.getImageData(0, 0, canvas.width, canvas.height);
-			var pix = imgd.data;
-
-			var k = 5, a = 0, j = 0;
-
-			for (var i = 0, n = pix.length; i < n; i += 3) {
-				
-				if (!checkColor(i, pix)) {
-					
-					a++;					
-					if (a > k) {
-						pix[i] = 255;
-						pix[i+1] = 0;
-						pix[i+2] = 0;
-					} 
-					if (j == 0) j = i - k * 3;
-					
-				} else a = 0;					
-			}
-			
-			if (j != 0) for (var i = j; i < j + k * 3; i++) pix[i] = 255;			
-			
-			// var x = Math.floor(Math.floor(j/3)%canvas.height);
-			// var y = Math.floor(Math.floor(j/3)/canvas.height);
-			// console.log(j+"/"+x+"/"+y)
-			
-			context.putImageData(imgd, 0, 0);
-						
-			var time = document.getElementById("time");
-			time.innerHTML = (+new Date() - startTime);
-			
-
-            // And repeat.
-			if (window.mode == 'color') setTimeout(processWebcamVideo, 50);
-			else clean();
-        }
-		
-		function checkColor(i, pix) {
-			
-			var r = true;
-			if (!hardCheck(i+0, pix)) r = false;
-			if (!hardCheck(i+1, pix)) r = false;
-			if (!hardCheck(i+2, pix)) r = false;
-			
-			return r;
+		var new_t = "";
+		for (var j = 0; j < old.length; j++) {
+			new_t += old[j];
 		}
 		
-		function hardCheck(i, pix) {
-			
-			var map = [];
-			if (colorsArray[i] == null) colorsArray[i] = [];
-			var summ = 0;
-			
-			for (var j = 0; j < colorsArray[i].length; j++) {
+		// new_t = new_t.substring(0, new_t.length - 1)
+		
+		threedee[i].style.webkitTransform = new_t;
+		
+		console.log(i + ": " + new_t);
+	}
+	
+}
 
-				summ += colorsArray[i][j];
-			}
-			
-			var average = summ / colorsArray[i].length;
-			
-			if (i == 58845) console.log(average);
-			
-			if (colorsArray[i].length < 2) colorsArray[i].push(pix[i]);			
-			if (colorsArray[i].length == 2) {
-				colorsArray[i].splice(0, 1);
-				colorsArray[i].push(pix[i]);
-			}
-				
-			var a = colorsArray[i]; 
-			
-			if (pix[i] < average - 30 || pix[i] > average + 30) {
+
+function push(x) {
+	
+	var threedee = document.getElementsByClassName("threedee face");
+	for (var i = 0; i < threedee.length; i++) {
+		
+		var old = threedee[i].style.webkitTransform.split(')');
+		var coor =  old[0].split('(')[1].split(',');
 					
-				return false;
-			}
-			
-			return true;
+		for (var j = 0; j < coor.length; j++) {
+			coor[j] = coor[j].substring(0, coor[j].length - 2)*x;
 		}
 		
-		function getSortedKeys(obj) {
-		    var keys = []; for(var key in obj) keys.push(key);
-		    return keys.sort(function(a,b){return obj[a]-obj[b]});
+		old[0] =  "translate3d("+coor[0]+"px, "+coor[1]+"px, "+coor[2]+"px";
+		
+		var new_t = "";
+		for (var j = 0; j < old.length; j++) {
+			new_t += old[j] + ")";
 		}
 		
+		new_t = new_t.substring(0, new_t.length - 1)
 		
+		threedee[i].style.webkitTransform = new_t;
+		
+		console.log(i + ": " + new_t);
+	}
+	
+	
+}
 
-    })();
+function make_box() {
+	var box = document.getElementById("box");
+	// if (box != null) 
+	box.appendChild(createBarrel(1, 's'));	
+	box.appendChild(createBarrel(2.5, 'm')); //Math.floor((Math.random()*5)+1)
+	// box.appendChild(createBarrel(3));
+	box.appendChild(createBarrel(4, 'b'));
+}
+
+function spin_round() {
+	// var box = document.getElementsByClassName("threedee assembly")[0];
+	// box.style.webkitTransform = 'rotate(40deg)';
+	var box_s = document.getElementById('s');
+	box_s.style.setProperty('animation', 'spin 5s linear infinite');
+	
 }

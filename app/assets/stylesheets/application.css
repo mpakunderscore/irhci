@@ -1,31 +1,35 @@
+html {overflow-y: scroll;}
+
+@font-face {
+    font-family: "Gotham Light";
+    src: url(gotham_light.ttf) format("truetype");
+}
+
 .header { 
+	background-position:fixed;
 	position: relative;
    	font-family: "Gotham Light", Helvetica, Arial, sans-serif;	
 	font-size: 19px;
-	height: 50px;
-	border-bottom: 1px solid #CECECE;
+	height: 45px;
+	border-bottom: 1px dashed #CECECE;
 }
 
-div.header a {margin-right: 5px; margin-left: 5px; color: #000}
-div.header a:link {text-decoration: none;}
-div.header a:visited {text-decoration: none;}
-div.header a:hover {text-decoration: underline;}
-div.header a:active {text-decoration: none;}
+div.header a {margin-right: 10px; color: #000}
+div.header a:link {text-decoration: none; }
+/*div.header a:visited {text-decoration: none;}*/
+div.header a:hover {border-bottom: 1px dashed #CECECE;}
+/*div.header a:active {border-top: 1px dashed #CECECE; border-bottom: 0;}*/
 
+
+/** debug **/
+/*div {border: 1px solid #CECECE;}*/
+/*p {border: 1px solid #CECECE;}*/
 p {width: 600px;}
 
-#title {position: absolute; bottom: 10px; left: 15px;}
-#menu {position: absolute; bottom: 10px; right: 15px;}
 
-#menu2 {	
-   	font-family: "Gotham Light", Helvetica, Arial, sans-serif;	
-	font-size: 15px;
-/*	height: 30px;*/
-/*	border:1px solid #CECECE;*/
-	padding-bottom: 10px;
-}
-#menu2 a {color: #000; font-size: 15px; border-bottom: 1px dotted;}
-#menu2 a:link {text-decoration: none;} /*underline*/
+/** top **/
+#title {position: absolute; bottom: 15px; left: 15px;}
+#menu {position: absolute; bottom: 15px; right: 15px;}
 
 #container {
     position: absolute;	
@@ -33,94 +37,117 @@ p {width: 600px;}
     bottom: 0px;
     top: 80px;
     left:0px;
-/*	background-image: url('rc2.png');*/
+/*	background-image: url('');*/
 	background-repeat: no-repeat;
 	background-position: 100% 100%;
 }
-
-#help {
-/*	width: 50%;*/
-/*	padding-top: 10px;*/
-    position: absolute;
-    bottom: 0px;
-/*	position: relative;*/
-/*	text-align: left;*/
-	margin: 0 auto;
-	padding: 20px;
-/*	padding-left: 15px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-*/	border-top: 1px dashed #CECECE;
-    background: #fff;
-
-/*	border:1px solid #CECECE;*/
-	
-	color: #333;
-	font: 13px helvetica,arial,freesans,clean,sans-serif;
-	line-height: 1.4; 
-
-}
-
-#help a {color: #3489bb}
-#help a:link {text-decoration: none;}
-#help a:hover {text-decoration: underline;}
-
-
 #main {
 	color: #333;
 	font: 15px helvetica,arial,freesans,clean,sans-serif;
 	line-height: 1.4;
 
-	padding-left: 30px;
-	padding-bottom: 30px;
-	
-	width: 1100px;
-	
-
-	margin: 0 auto;
-
+	padding-left: 80px;
+	padding-right: 80px;
+	padding-bottom: 40px;
+		
+/*	width: 1100px;*/
+/*	margin-bottom: 50px auto;*/
 /*	border:1px solid #CECECE;*/
 }
 
 #main a {color: #3489bb}
 #main a:link {text-decoration: none;}
-#main a:hover {text-decoration: underline;}
-
-@font-face {
-    font-family: "Gotham Light";
-    src: url(gotham_light.ttf) format("truetype");
+#main a:hover {
+/*	border-bottom: 1px dashed #3489bb;*/
+/*	border-left: 1px dashed #3489bb;  */
+	color: #7df9ff;
 }
 
-/*Initialize*/
-ul#menu3, ul#menu3 ul.sub-menu {
-    padding-top: 20px;  
-    padding-left:0;
-/*	  padding:0;*/
-    margin: 0;
+#imgbox {
+/*	width: 1100px;*/
+	width: 900px;
+	height: 500px;
+	/*border:1px solid #CECECE;*/
 }
-ul#menu3 li, ul#menu3 ul.sub-menu li {
+
+.edging {
+/*	border: 1px dashed #CECECE;*/
+}
+
+/** menu hints remake **/
+ul#menu, ul#menu ul.sub-menu {
+    padding: 0px;
+    margin: 0px;
+}
+ul#menu li, ul#menu ul.sub-menu li {
     list-style-type: none;
     display: inline-block;
+	
 }
-/*Link Appearance*/
-ul#menu3 li a, ul#menu3 li ul.sub-menu li a {
-
-	padding-top: 5px;  
-    padding-bottom: 5px;  
-    display: inline-block;
-}
-/*Make the parent of sub-menu relative*/
-ul#menu3 li {
+ul#menu li {
     position: relative;
 }
-/*sub menu*/
-ul#menu3 li ul.sub-menu {
+ul#menu li ul.sub-menu {
+	
     display: none;
-    position: absolute;
-    top: 30px;
-    left: 0;
-    width: 100px;
+	position: fixed;
+    top: 70px;
+	text-align: right;
+    right: 35px;	
+	font-size: 13px;
+
+/*	border-bottom: 1px dashed #CECECE;*/
 }
-ul#menu3 li:hover ul.sub-menu {
-    display: inherit;
+ul#menu li:hover ul.sub-menu {
+	opacity: 0.5;
+    display: block;
 }
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/** menu2 top center **/
+#menu2 {	
+   	font-family: "Gotham Light", Helvetica, Arial, sans-serif;	
+	font-size: 15px;
+	height: 30px;
+/*	height: 30px;*/
+
+	padding-bottom: 10px;
+}
+#menu2 a {color: #000; font-size: 15px; border-bottom: 1px dashed #CECECE;}
+#menu2 a:link {text-decoration: none;} /*underline*/
+#menu2 a:hover {border-top: 1px dashed #CECECE; border-bottom: 0;}
+
+/** help bottom left **/
+#help {
+    position: fixed;
+    bottom: 0px;
+/*	right: 0px;*/
+	margin: 0 auto 0;
+	padding: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
+/*	border-top: 1px dashed #CECECE;*/
+    background: #fff;
+	color: #333;
+	font: 15px helvetica,arial,freesans,clean,sans-serif;
+	line-height: 1.4;
+}
+
+#help a {color: #3489bb; margin-right: 0px;}
+#help a:link {text-decoration: none;}
+#help a:hover {color: #7df9ff;} /*underline text-decoration: none;*/ 
+
+#voice {visibility: hidden;}
+
+/*input[type=text] {
+	font: 15px helvetica,arial,freesans,clean,sans-serif;
+}*/
+
