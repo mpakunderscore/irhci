@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+
+  "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png"
+     },
+	 
+  "minimum_chrome_version": "6",
+
+  "name": "Box",
+  "description": "This extension demonstrates a 'browser action'.",
+  "version": "0.1",
+
+  "browser_action": {
+	"default_title": "irhci.com/box",
+     "default_icon": "icon_cube_t.png",
+    "default_popup": "popup.html"
+  },
+  
+  "background": { "scripts": ["background.js"] },
+  
+  "content_scripts": [
+    {
+		"matches":  ["http://en.wikipedia.org/wiki/*", "http://www.reddit.com/r/AskReddit/comments/*"],
+        "css":      ["words.css"],
+      	"js": 		["contentscript.js"]
+    }
+  ],
+  
+  "web_accessible_resources": [
+      	"words.css"
+  ],
+  
+  "permissions": [
+    "https://secure.flickr.com/",
+	"tabs", 
+	"http://*/*",
+	"contextMenus"
+  ]
+}

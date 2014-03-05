@@ -1,79 +1,73 @@
-//#В js пишешь что-нибудь вроде:
-// $(document).on('click', '#nani', function () {
-// $('[role="overlay"]').add('[role="popup"].show()');
-//                             });
 
-function checkAudio() {
-    alert(document.getElementById("speechInput").value);
-}
+        // url: "http://en.wikipedia.org/wiki/Special:Random",
+		// url: "http://www.en.wikipedia.org/wiki/Riverbank_State_Park",
 
-function showPopup() {
-	var words = document.getElementById("words")
-	var count = words.rows.length
-	if (count == 0) return
+
+function get_content(url) {
 	
-	document.getElementById("overlay").style.visibility = "visible"
-	document.getElementById("popup").style.visibility = "visible"
+	var xmlHttp = null;
+	var resp;
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", url, false);
 	
-	var amount = 0
-	for (var i = 0; i < count; i++) {
-		amount += parseInt(words.rows[i].cells[1].innerHTML)
+	xmlHttp.onreadystatechange = function() {
+	  if (xmlHttp.readyState == 4) {
+	    // JSON.parse does not evaluate the attacker's scripts.
+	    resp = xmlHttp.responseText;//JSON.parse();
+	  }
 	}
-}
-							 							 
-function closePopup() {			
-	document.getElementById("overlay").style.visibility = "hidden"
-	document.getElementById("popup").style.visibility = "hidden"
-}
-							 
-function checkFile() {	
-	showPopup()
+	
+    xmlHttp.send();
+    return resp;
 }
 
-function getTranslation(row) {
-	var index = row.parentNode.parentNode.rowIndex
-	var words = document.getElementById("words")
-	var tr = words.rows[index].cells[2]
-	tr.innerHTML = "перевод"
+function get_words(id) {
+	
+	var words_div = document.getElementById('words'); // get the div	
+	
+	// var data = get_content('http://www.en.wikipedia.org/wiki/Special:Random');
+	// get_content('http://localhost:3000/projects')
+	var data = get_content('http://localhost:3000/vox');
+	// var data = get_content('http://en.wikipedia.org/wiki/Special:Random');
+	// var data = get_content('https://www.google.ru/?gws_rd=cr');
+	
+	// var text = content.toString();
+	// get_content('');
+
+	var main = document.getElementById(id); // get the div	
+	main.innerHTML = data;
+	// var text = main.innerHTML;
+	
+	data = data.replace(/<[^>]*>/g, '');
+	var pattern = /[a-zA-Z]{3,}/g;
+	var match;
+	var words = {};
+			
+	while (match = pattern.exec(data)) {
+		// console.log(match[1]);
+		var w = match[0].toLowerCase();
+		if (words[w] == null) words[w] = 1;
+		else words[w] = words[w] + 1;
+	}
+	
+	var keys = getSortedKeys(words);
+
+	for (var i = 0, len = keys.length; i < len; ++i) {
+		
+		var key = keys[i];
+
+		if (words[key] > 2 && words[key] < 5) main.innerHTML = replaceAll(key, '<b>'+key+'</b>', main.innerHTML);		
+		if (words[key] > 2 && words[key] < 5) words_div.innerHTML += (key + ': ' + words[key] + '</br>');
+	}
+	
+	// main.innerHTML = data;
 }
 
-// function moveWord(row) {
-// 	
-// 	var index = row.parentNode.parentNode.rowIndex;
-// 	var words = document.getElementById("words");
-// 	var known = document.getElementById("known");
-// 	
-// 	var upperRow = 1;
-// 
-// 	if (index > 0) {
-// 		
-// 		for (var i = 1; i <= index; i++) {
-// 			var text = words.getElementsByTagName("tr")[i].cells[2].innerText;
-// 			if (words.getElementsByTagName("tr")[i].cells[2].innerText == "tr") {
-// 				upperRow = i;
-// 				break;
-// 			}
-// 		}
-// 		
-// 		for (var i = upperRow; i < index; i++) {
-// 
-// 			var row = document.createElement("tr");						
-// 			var cell1 = document.createElement("td");
-// 			var cellText1 = document.createTextNode(words.getElementsByTagName("tr")[upperRow].cells[0].innerText);
-// 			cell1.appendChild(cellText1);
-// 			var cell2 = document.createElement("td");
-// 			var cellText2 = document.createTextNode(words.getElementsByTagName("tr")[upperRow].cells[1].innerText);
-// 			cell2.appendChild(cellText2);
-// 			
-// 			row.appendChild(cell1);
-// 			row.appendChild(cell2);
-// 			known.appendChild(row);
-// 			
-// 			words.deleteRow(upperRow);					
-// 			
-// 		}
-// 		
-// 		var tr = words.getElementsByTagName("tr")[upperRow].cells[2];
-// 		tr.innerHTML = "перевод";
-// 	}
-// }
+function getSortedKeys(obj) {
+    var keys = []; for(var key in obj) keys.push(key);
+    return keys.sort(function(b, a){return obj[a] - obj[b]});
+}
+
+function replaceAll(find, replace, str) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}
